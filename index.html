@@ -155,53 +155,11 @@
       
     <div class="article-entry" itemprop="articleBody">
        
-  <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><h4 id="面向对象简介"><a href="#面向对象简介" class="headerlink" title="面向对象简介"></a>面向对象简介</h4><p>对象是客观世界中的物体在人脑中的映像，和人为的概念。</p>
-<p>所谓（软件）对象，是一种将状态（数据）和行为（操作）合成到一起的软件构造，用来描述真实世界的一个（物理或概念性的）对象。</p>
-<p>对象操作也可看作是可以向对象要求提供的服务（c#编程语言称作<strong>方法</strong>）</p>
-<p>类是对众多对象抽象出来的一个模型 ，把模型实例化后就是一个对象</p>
-<p><strong>实例化的例子</strong></p>
-<p>首先把桌子椅子创建一个类</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">table</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> legs;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">string</span> desktop;</span><br><span class="line">        &#125;</span><br><span class="line"> <span class="keyword">public</span> <span class="keyword">class</span> <span class="title">chair</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">int</span> legs;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">string</span> desktop;</span><br><span class="line">            <span class="keyword">public</span> <span class="built_in">bool</span> backrest;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
-
-<p>把抽象的类，实例化成四条腿的圆桌</p>
-<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Main</span>(<span class="params"><span class="built_in">string</span>[] args</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            <span class="built_in">string</span> name;</span><br><span class="line">            table tb = <span class="keyword">new</span> table();<span class="comment">//抽象出来的一个类型,进行实例化操作</span></span><br><span class="line">            tb.desktop = <span class="string">&quot;圆桌&quot;</span>;<span class="comment">//将‘圆桌’属性赋值给table里的desktop</span></span><br><span class="line">            tb.legs = <span class="number">4</span>;</span><br><span class="line">            Console.WriteLine(tb.legs + <span class="string">&quot;条腿的&quot;</span> + tb.desktop);</span><br><span class="line">            Console.ReadKey();</span><br><span class="line">        &#125;<span class="comment">//实例类型属于对象，静态类型属于类</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>定义类及类成员</strong></p>
-<p>静态成员属于类，实例成员属于对象</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">A[常量]---F[与类关联的常数值]</span><br><span class="line">B[字段]--&gt;G[类的变量]</span><br><span class="line">C[方法]--&gt;H[类可执行的计算和操作]</span><br><span class="line">D[属性]--&gt;I[与读写类的命名属性相关联的操作]</span><br><span class="line">E[运算符]--&gt;J[与类关联的常数值]</span><br><span class="line">L[构造函数]--&gt;M[初始化类的实例或类本身所需的操作]</span><br><span class="line">K[定义类及类成员]--&gt;A</span><br><span class="line">K--&gt;B</span><br><span class="line">K--&gt;C</span><br><span class="line">K--&gt;D</span><br><span class="line">K--&gt;E</span><br><span class="line">K--&gt;L</span><br><span class="line">style K fill:#2ff,fill-opacity:0.1,stroke:#faa,stroke-width:4px</span><br></pre></td></tr></table></figure>
-
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p><strong>public</strong>公有访问，不受任何限制</p>
-<p><strong>private</strong>私有访问。只限于本类成员内访问，子类，实例都不能访问。</p>
-<p><strong>static</strong>静态化，只可在类中使用不可进行实例化（不常用）</p>
-<p><strong>protected</strong>保护访问。只限于本类内部和子类内部可访问，实例不能访问</p>
-<p><strong>internal</strong>内部访问。只限于本地项目内访问，其他不能访问。（相当于项目内的public）</p>
-<p><strong>protected internal</strong>内部保护访问。只限于本地项目和子类访问，其他不能访问。（<strong>protected  和 internal</strong>权限之和）</p>
-<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><ol>
-<li><p>被继承的类成为父类，基类，超类，而主动继承的类成为子类或派生类。子类继承父类的状态和行为，同时也有自己的特性</p>
-</li>
-<li><p><strong>System.Object</strong>是所有类型的基类</p>
-</li>
-<li><p>C#中继承的写法，class A:B{}</p>
-</li>
-<li><p>继承具有传递性，由A:B B:C =&gt; A:C</p>
-</li>
-<li><p>构造方法不能继承</p>
-</li>
-<li><p>C#只允许单继承，一个类只能继承与一个父类</p>
-</li>
-<li><p>密封函数不能被继承，例如：sealed class Animal{}</p>
-</li>
-<li><p>子类不仅继承了父类的共有成员，同时继承了父类的私有成员，只是父类的私有成员在子类中不可被访问</p>
-</li>
-</ol>
-<h4 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h4><p><strong>重载</strong></p>
-<p>同一个类中有多个方法的名称相同，参数个数不同或类型不同，则属于重载。</p>
-<p>同一个类中有多个方法的名称相同，参数个数相同，参数类型相同，返回值类型不同，这样不属于重载，编译时会报错。</p>
-<p><strong>重写（override）</strong></p>
-<p>普通类中的virtual方法可在子类中被重写；</p>
-<p>抽象类重点abstract方法和abstract属性必须直接或间接在子类中被重写；</p>
-<p>接口中的所有成员都必须被子类实现；</p>
- 
+  <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2> 
+      <a class="article-more-link" href="/2020/11/19/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/"
+        >阅读更多...</a
+      >
+       
       <!-- reward -->
       
     </div>
@@ -650,8 +608,8 @@
     
     
     
-    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="86"
-        src="//music.163.com/outchain/player?type=2&id=441491828&auto=1&height=66"></iframe>
+    <iframe frameborder="no" border="1" marginwidth="0" marginheight="0" width="200" height="52"
+        src="//music.163.com/outchain/player?type=2&id=441491828&auto=1&height=32"></iframe>
 </div>
 
 <style>
